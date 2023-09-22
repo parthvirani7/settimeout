@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <p id="print"></p>
+  <script>
+    setTimeout(myfun, 2000);
+
+    function myfun() {
+      console.log("it's settimeout ...");
+    }
+
+    let a = setTimeout(function () {
+      console.log("hello setTimeout...");
+    }, 3000);
+
+    setInterval(myfun2, 1000);
+
+    function myfun2() {
+      document.write("it's settimeout ...");
+    }
+
+    let b = setInterval(function () {
+      document.write("hello setTimeout...`<br>`");
+    }, 20000);
+
+    function waiting() {
+      return new Promise((resolve) => {
+        setInterval(() => {
+          resolve("resolve");
+        }, 3000);
+      });
+    }
+
+    async function getData() {
+      const result = await waiting();
+      console.log(result, "result");
+    }
+
+    let c = setInterval(function () {
+      document.write(1 + 1);
+    }, 20000);
+    
+
+    getData();
+
+setTimeout(function() {myFunc("Fname", "Lname")}, 2000);
+
+function myFunc(Fn, Ln) {
+  document.getElementById("print").innerHTML = "Parameters: " + Fn + " " + Ln;
+}
+
+  </script>
+</html>
